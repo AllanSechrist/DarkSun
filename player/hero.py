@@ -70,4 +70,3 @@ class Hero(pygame.sprite.Sprite):
         """
         self.change_y = 0
 
-#asdf
