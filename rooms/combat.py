@@ -4,6 +4,11 @@ from Constants import display as d
 
 # creates and positions player sprites and enemy sprites on during combat
 def combat(player):
+    # save player's current position on non-combat screen
+    save_x = player.rect.x
+    save_y = player.rect.y
+
+
     player.rect.x = 700
     player.rect.y = 300
 
@@ -15,7 +20,7 @@ def combat(player):
                 in_combat = False
                 d.terminate()
 
-            # gets player input to move player
+            # gets player input to move player's menu selection
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
                     # controls for menu select go here
@@ -32,7 +37,9 @@ def combat(player):
 
                 if event.key == pygame.K_c:
                     in_combat = False
-
+                    # return player back to original spot on non-combat map
+                    player.rect.x = save_x
+                    player.rect.y = save_y
             """
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT or pygame.K_RIGHT:
