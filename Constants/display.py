@@ -1,5 +1,6 @@
 import pygame
 from player import hero
+from player import menus
 # colors
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -22,9 +23,13 @@ gameDisplay = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
 active_sprite_list = pygame.sprite.Group()
 active_sprite_list.add(player)
 clock = pygame.time.Clock()
+
+# creates combat menu
+combat_menu = menus.CombatMenu(5, (DISPLAY_HEIGHT / 2) + 100, DISPLAY_WIDTH - 10, DISPLAY_HEIGHT - (DISPLAY_HEIGHT / 2) - 105, BLUE,
+                               WHITE)
+
+
 # exits program
 def terminate():
     pygame.quit()
     quit()
-
-

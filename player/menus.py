@@ -2,7 +2,7 @@
 code for general menu class, sub-classes and speech bubbles
 """
 import pygame
-from Constants import display as d
+
 
 
 class Menu(object):
@@ -12,33 +12,33 @@ class Menu(object):
 
     def __init__(self):
         # variables to draw the size of the menu
-        self.top_left = None
+        self.start_x = None
         self.top_right = None
-        self.bottom_left = None
+        self.start_y = None
         self.bottom_right = None
-
-        # variables to draw the border of the menu
-        self.border_TL = self.top_left
-        self.border_TR = self.top_right
-        self.border_BL = self.bottom_left
-        self.border_BR = self.bottom_right
-
+        # sets color of menu and color of menu border
         self.color = None
+        self.border_color = None
 
     # draws menu to screen
     def draw_menu(self, gameDisplay):
-        pass
-        pygame.draw.rect(gameDisplay, self.color, [self.top_left, self.bottom_left, self.top_right, self.bottom_right])
+        pygame.draw.rect(gameDisplay, self.color, [self.start_x, self.start_y, self.top_right, self.bottom_right])
+        pygame.draw.rect(gameDisplay, self.border_color, [self.start_x, self.start_y, self.top_right, self.bottom_right], 2)
+
 
 class CombatMenu(Menu):
     """
     creates menu used for combat allowing player interaction
     """
 
-    def __init__(self):
+    def __init__(self, start_x, start_y, top_right, bottom_right, color, border_color):
         # calls the parent constructor
         super().__init__()
 
-        self.top_left = 0
-        self.top_right = d.DISPLAY_WIDTH
-        self.bottom_left = None
+        self.start_x = start_x
+        self.top_right = top_right
+        self.start_y = start_y
+        self.bottom_right = bottom_right
+
+        self.color = color
+        self.border_color = border_color

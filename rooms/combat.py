@@ -14,7 +14,7 @@ def combat(player):
 
     in_combat = True
 
-    while in_combat is True:
+    while in_combat:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:  # exits the game when player closes the window
                 in_combat = False
@@ -52,6 +52,7 @@ def combat(player):
 
         d.gameDisplay.fill(d.BLACK)
         d.active_sprite_list.draw(d.gameDisplay)
+        d.combat_menu.draw_menu(d.gameDisplay)
 
         pygame.display.update()
 

@@ -2,6 +2,7 @@ import pygame
 from player import hero
 from Constants import display as d
 from rooms import combat as c
+from rooms import pause as p
 
 pygame.init()
 
@@ -38,6 +39,9 @@ def main():
 
                 if event.key == pygame.K_c:
                     c.combat(d.player)
+
+                if event.key == pygame.K_p:
+                    p.pause()
 
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT or pygame.K_RIGHT:
